@@ -43,6 +43,13 @@
       treinamento.val('');
       $('<li>').text(texto).css({ 'color' : 'blue', 'background-color' : 'lightgrey'}).appendTo('#lista');
   });
+  $('#botao-atualiza').click(function() {
+      $.get('http://mirrorfashion.caelum.com.br/treinamentos', function(data) {
+          $.each(data.treinamentos, function() {
+              $('<li>').text(this.nome).css('color', 'green').appendTo('#lista');
+          });
+      }, 'jsonp');
+  });
 </script>
 
 </body>
